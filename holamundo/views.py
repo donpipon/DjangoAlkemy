@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 
 
-def saludo(request):
-    return HttpResponse("Hola Mundo")
+def saludo(request, username):
+    return HttpResponse("Hola, " + username + "!!!")
 
 
 def despedida(request):
