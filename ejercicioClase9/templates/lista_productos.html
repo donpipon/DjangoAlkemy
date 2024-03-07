@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista productos</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>LISTA DE PRODUCTOS</h1>
+    <div class="container">
+        <ul>
+            {% for producto in productos %}
+                <li>
+                    <h2>{{ producto.nombre }}</h2>
+                    <br />
+                    <h3>${{ producto.precio }}</h3>
+                    <br />
+                    <p>{{ producto.descripcion }}</p>
+                    <form action="{% url 'borrar' producto.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="borrar">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{% url 'crear_producto' %}">Crear Producto</a>
+</body>
+</html>

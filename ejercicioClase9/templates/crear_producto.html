@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear producto</title>
+</head>
+<body>
+    <h1>Crear Producto</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" value="{% if producto %}{{ producto.title }}{% endif %}"><br>
+        <label for="precio">Precio:</label><br>
+        <input type="text" id="precio" name="precio" value="{% if producto %}{{ producto.precio }}{% endif %}"><br>
+        <label for="descripcion">Descripcion:</label><br>
+        <textarea id="descripcion" name="descripcion">{% if producto %}{{ producto.descripcion }}{% endif %}</textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="{% url 'lista_productos' %}">Cancel</a>
+</body>
+</html>

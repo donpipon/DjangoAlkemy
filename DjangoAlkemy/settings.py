@@ -25,7 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'holamundo'
+    'holamundo',
+    'ejercicioClase9',
+
 ]
 
 MIDDLEWARE = [
@@ -54,6 +56,12 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]
 
 WSGI_APPLICATION = 'DjangoAlkemy.wsgi.application'
