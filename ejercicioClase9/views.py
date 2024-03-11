@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+import json
 
 # READ
 
 def lista_productos(request):
     productos = Producto.objects.all()
     return render(request, 'lista_productos.html', {'productos': productos})
-    #return HttpResponse("lista_productos")
 
+
+# CREATE
 def crear_producto(request):
     if request.method == 'POST':
         form = ProductoForm(request.POST)

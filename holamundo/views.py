@@ -12,4 +12,4 @@ def despedida(request):
 
 def buscarPalabra(request):
     palabra, definicion = palabraAleatoria()
-    return HttpResponse(palabra)
+    return HttpResponse(palabra+"\n"+definicion)

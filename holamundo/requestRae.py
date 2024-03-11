@@ -51,6 +51,7 @@ def palabraAleatoria() -> str:
         print(f"Request failed with status code: {response.status_code}")
 
     r = dle.search_by_word(word)
+    #meta_description = r.meta_description()
     definicion = extract_first_sentence(r._meta_description)
     return word, definicion
 
