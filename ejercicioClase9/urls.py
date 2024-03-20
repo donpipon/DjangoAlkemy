@@ -7,6 +7,6 @@ urlpatterns = [
     #path('', views.lista_productos, name="lista_productos"),
     path('lista_productos/', views.lista_productos, name="lista_productos"),
     path('crear_producto', views.crear_producto, name="crear_producto"),
-    path('task/<int:id>/borrar/', views.borrar, name='borrar'),
+    path('borrar/<int:id>', views.borrar, name='borrar'),
 
 ]

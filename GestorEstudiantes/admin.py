@@ -2,9 +2,12 @@ from django.contrib import admin
 from .models import Estudiante
 
 class EstudianteAdmin(admin.ModelAdmin):
-    list_display = ["nombre", "apellido", "edad", "nota"]
+    list_display = ["nombre", "apellido", "fecha_nacimiento", "edad", "calificacion" ] 
     search_fields = ["nombre", "apellido", "edad", "nota"]
-    empty_value_display = "-sin asignar-"
+    
+    @admin.display(empty_value="-sin asignar-")
+    def calificacion(self, obj):
+        return obj.nota
     
 
 

@@ -1,16 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
 </head>
+
 <body>
+    
     <h1>Lista de Estudiantes</h1>
         <ul>
             {% for estudiante in estudiantes %}
-            <li> {{estudiante.id}} {{estudiante.nombre}} {{estudiante.apellido}} - Edad: {{estudiante.edad}} - Nota: {{estudiante.nota}}</li>
+            <li> {{estudiante.id}} 
+                {{estudiante.nombre}}
+                {% if estudiante.apellido %} {{estudiante.apellido}} {% endif %} - 
+                {% if estudiante.fecha_nacimiento %} {{estudiante.fecha_nacimiento}} {% endif %}
+                 Edad: {{estudiante.edad}} -
+                 {% if estudiante.nota %} Nota: {{estudiante.nota}} {% endif %}</li>
             {% endfor %}
         </ul>
+    
+        
 
 </body>
 </html>
